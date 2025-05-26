@@ -1,0 +1,24 @@
+#!/bin/sh
+unzip "$HOME"/Downloads/*.zip -d "$HOME"/PICO-8/ > "$HOME"/install.pod
+kdialog --textbox "$HOME"/install.pod
+kdialog --inputbox "What is the name of the folder:" > "$HOME"/install.pod
+read -r folder < "$HOME"/install.pod
+kdialog --inputbox "What is the name of the app" > ~/install.pod 
+read -r app < ~/install.pod
+kdialog --inputbox "what is the name of the executable" >~/install.pod 
+read -r exe < ~/install.pod 
+rm ~/install.pod
+rm "$HOME"/Downloads/*
+printf "#!/bin/bash\nrm $HOME/.local/share/applications/$app.desktop\nrm -r $HOME/PICO-8/$folder/" > "$HOME"/PICO-8/"$folder"/uninstall.sh
+printf "[Desktop Entry]\nComment=\nExec=$HOME/PICO-8/$folder/$exe\nIcon=$HOME/PICO-8/$folder/$exe.png\nName=$app\nNoDisplay=false\nPath=\nStartupNotify=true\nTerminal=false\nTerminalOptions=\nType=Application\nX-KDE-SubstituteUID=false\nX-KDE-Username=" > "$HOME/.local/share/applications/$app.desktop"
+grep -n "test.desktop" ./.config/menus/applications-kmenuedit.menu | awk '{print $1}' | head -n 1 | tail -n 1 > data.pod
+read num1 < data.pod 
+grep -n "test.desktop" ./.config/menus/applications-kmenuedit.menu | awk '{print $1}' | head -n 2 | tail -n 1 > data.pod
+read num2 < data.pod 
+sed -i "${num2%:}i    <Filename>$app $app1 $app2.desktop</Filename>" ~/.config/menus/applications-kmenuedit.menu
+sed -i "${num1%:}i    <Filename>$app $app1 $app2.desktop</Filename>" ~/.config/menus/applications-kmenuedit.menu
+qdbus org.kde.kappmenu /KAppMenu org.kde.kappmenu.reconfigure
+rm data.pod
+chmod 644 "$HOME/.local/share/applications/$app.desktop"
+chmod +x "$HOME"/PICO-8/"$folder"/uninstall.sh
+chmod +x "$HOME"/PICO-8/"$folder"/"$exe"
