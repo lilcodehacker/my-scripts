@@ -32,5 +32,9 @@ This will take an apt link and open it using the Qapt Package installer
 **Prerequisites:** qapt
 
 # Uninstall.SH
-This is a template for install.sh it goes in the game directory and you run it to uninstall the PICO-8 game
+This is a template for install.sh it goes in the game directory, and you run it to uninstall the PICO-8 game
 **Prerequisites:** none
+
+# Reverse dictionary 
+This is my first Python script. It gives you a definition, and you have to guess the word
+**Prerequisites:** python3 random_word wordhoard (both of the latter are python libraries)
