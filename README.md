@@ -15,16 +15,12 @@ This was my first script. I copied it from a MUO article and changed it a bit.
 This counts the days until a date.
 **Prerequisites:** date
 
-# HideMessenger.SH & ShowMessenger.SH
-I use this to hide and show my server's IT window.
-**Prerequisites:** xdotool
-
 # Install & Install.SH
-I coded this to easily integrate my PICO-8 itch.io games into my system. The file Install is just a GUI version.
+I coded this to integrate my PICO-8 itch.io games into my system easily. The file Install is just a GUI version.
 **Prerequisites:** zip
 
 # Lightdm.SH
-I use this so that I always have a tty running lightdm, so that the switch user button on the KDE lockscreen will work.
+I use this so that I always have a tty running, allowing the switch user button on the KDE lock screen to function properly.
 **Prerequisites:** w, lightdm
 
 # LockOffKDE.SH
