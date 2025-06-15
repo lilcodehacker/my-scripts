@@ -28,7 +28,7 @@ while True:
                 break
             else:
                 if i == 4:
-                    print (f"You LOSE!!!!👎")
+                    print (f"You LOSE!!!!👎 the word was {word}!!!")
                     if points > 10:
                         print (f"Your score was {points}!!👍")
                     else:
